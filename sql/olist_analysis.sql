@@ -1,8 +1,4 @@
--- =====================================================
--- OLIST E-COMMERCE ANALYSIS
--- =====================================================
-
--- Business Question 1:
+-- Question 1:
 -- Which product categories generate the most revenue?
 
 select
@@ -20,3 +16,23 @@ from orders as tb1
 group by product_category_name_english
 order by Total_Revenue desc
 limit 10;
+
+-- Question 2:
+-- How has sales performance changed over time?
+
+SELECT
+    YEAR(tb1.order_purchase_timestamp) AS Year,
+    MONTH(tb1.order_purchase_timestamp) AS Month,
+    COUNT(DISTINCT tb1.order_id) AS Number_of_Orders,
+    ROUND(SUM(tb2.payment_value), 2) AS Total_Payment_Value
+FROM orders AS tb1
+JOIN order_payments AS tb2
+    ON tb1.order_id = tb2.order_id
+WHERE tb1.order_purchase_timestamp >= '2017-01-01'
+  AND tb1.order_purchase_timestamp < '2018-09-01'
+GROUP BY
+    YEAR(tb1.order_purchase_timestamp),
+    MONTH(tb1.order_purchase_timestamp)
+ORDER BY
+    Year,
+    Month;
