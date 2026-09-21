@@ -4,7 +4,7 @@
 
 
 -- =====================================================
--- Business Question 1:
+-- Question 1:
 -- Which product categories generate the most revenue?
 -- =====================================================
 
@@ -26,7 +26,7 @@ LIMIT 10;
 
 
 -- =====================================================
--- Business Question 2:
+-- Question 2:
 -- How has sales performance changed over time?
 -- =====================================================
 
@@ -49,7 +49,7 @@ ORDER BY
 
 
 -- =====================================================
--- Business Question 3:
+-- Question 3:
 -- Where are Olist's customers and payments concentrated?
 -- =====================================================
 
@@ -69,7 +69,7 @@ ORDER BY Total_Payment_Value DESC;
 
 
 -- =====================================================
--- Business Question 4:
+-- Question 4:
 -- How often are orders delivered late?
 -- =====================================================
 
